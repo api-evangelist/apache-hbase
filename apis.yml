@@ -1,0 +1,36 @@
+aid: apache-hbase
+name: Apache HBase
+description: >-
+  Apache HBase is an open-source, distributed, versioned, non-relational database modeled after Google's Bigtable. It provides random, real-time read/write access to big data and runs on top of Apache Hadoop HDFS.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Database
+  - NoSQL
+  - Big Data
+  - Hadoop
+  - Wide Column
+created: '2026-03-16'
+modified: '2026-03-16'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apache-hbase/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: apache-hbase:apache-hbase-rest-api
+    name: Apache HBase REST API
+    description: >-
+      HBase provides a REST API (Stargate) for table operations, scans, and cell-level access, a Thrift API for cross-language access, and a comprehensive Java client API for all data operations including filters, coprocessors, and admin functions.
+    humanURL: https://hbase.apache.org/book.html#_rest
+    tags:
+      - REST
+      - Thrift
+      - Java
+      - NoSQL
+    properties:
+      - type: Documentation
+        url: https://hbase.apache.org/book.html#_rest
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
