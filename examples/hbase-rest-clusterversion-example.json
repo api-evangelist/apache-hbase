@@ -1,0 +1,7 @@
+{
+  "Server": "2.5.7",
+  "JVM": "Oracle Corporation 11.0.20",
+  "OS": "Linux 5.15.0",
+  "REST": "0.0.3",
+  "Jersey": "1.19"
+}

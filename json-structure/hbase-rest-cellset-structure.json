@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-structure/hbase-rest-cellset-structure.json",
+  "title": "CellSet",
+  "type": "object",
+  "properties": {
+    "Row": "array"
+  }
+}

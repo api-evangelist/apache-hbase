@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-schema/hbase-rest-cellset-schema.json",
+  "title": "CellSet",
+  "type": "object",
+  "description": "Set of HBase cells grouped by row",
+  "properties": {
+    "Row": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "example": "cm93a2V5MQ=="
+          },
+          "Cell": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Cell"
+            }
+          }
+        }
+      }
+    }
+  }
+}

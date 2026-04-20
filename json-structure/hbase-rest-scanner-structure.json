@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-structure/hbase-rest-scanner-structure.json",
+  "title": "Scanner",
+  "type": "object",
+  "properties": {
+    "startRow": "string",
+    "endRow": "string",
+    "batch": "int32",
+    "maxVersions": "int32"
+  }
+}

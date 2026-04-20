@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-structure/hbase-rest-columnfamily-structure.json",
+  "title": "ColumnFamily",
+  "type": "object",
+  "properties": {
+    "name": "string",
+    "VERSIONS": "string",
+    "COMPRESSION": "string",
+    "BLOOMFILTER": "string",
+    "TTL": "string"
+  }
+}

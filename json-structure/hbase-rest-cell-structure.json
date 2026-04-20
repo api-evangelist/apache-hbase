@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-structure/hbase-rest-cell-structure.json",
+  "title": "Cell",
+  "type": "object",
+  "properties": {
+    "column": "string",
+    "timestamp": "int64",
+    "$": "string"
+  }
+}

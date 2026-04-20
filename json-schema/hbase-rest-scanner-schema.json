@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-schema/hbase-rest-scanner-schema.json",
+  "title": "Scanner",
+  "type": "object",
+  "description": "HBase scanner configuration for table scans",
+  "properties": {
+    "startRow": {
+      "type": "string",
+      "example": "cm93MQ=="
+    },
+    "endRow": {
+      "type": "string",
+      "example": "cm93Mg=="
+    },
+    "batch": {
+      "type": "integer",
+      "example": 100
+    },
+    "maxVersions": {
+      "type": "integer",
+      "example": 1
+    }
+  }
+}

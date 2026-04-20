@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "hbase": "https://hbase.apache.org/vocab#",
+    "Server": "hbase:Server",
+    "JVM": "hbase:JVM",
+    "OS": "hbase:OS",
+    "REST": "hbase:REST",
+    "Jersey": "hbase:Jersey",
+    "table": "hbase:table",
+    "name": "schema:name",
+    "ColumnSchema": "hbase:ColumnSchema",
+    "VERSIONS": "hbase:VERSIONS",
+    "COMPRESSION": "hbase:COMPRESSION",
+    "BLOOMFILTER": "hbase:BLOOMFILTER",
+    "TTL": "hbase:TTL",
+    "Row": "hbase:Row",
+    "key": "hbase:key",
+    "Cell": "hbase:Cell",
+    "column": "hbase:column",
+    "timestamp": "schema:dateCreated",
+    "startRow": "hbase:startRow",
+    "endRow": "hbase:endRow",
+    "batch": "hbase:batch",
+    "maxVersions": "hbase:maxVersions",
+    "Region": "hbase:Region",
+    "id": "schema:identifier",
+    "startKey": "hbase:startKey",
+    "endKey": "hbase:endKey",
+    "location": "schema:location"
+  }
+}

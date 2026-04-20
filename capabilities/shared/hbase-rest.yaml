@@ -1,0 +1,73 @@
+name: Apache HBase REST API
+description: Shared capability definitions for Apache HBase REST API (Stargate) operations
+baseUrl: http://localhost:8080
+transport: rest
+version: "1.0.0"
+operations:
+  - operationId: listTables
+    name: Apache HBase List Tables
+    description: List all tables in the HBase cluster
+    method: GET
+    path: /
+    tags:
+      - Tables
+
+  - operationId: getTableSchema
+    name: Apache HBase Get Table Schema
+    description: Get the schema (column families) for an HBase table
+    method: GET
+    path: /{tableName}/schema
+    parameters:
+      - name: tableName
+        in: path
+        required: true
+        type: string
+    tags:
+      - Tables
+
+  - operationId: putRow
+    name: Apache HBase Put Row
+    description: Write one or more cells to a specific row in an HBase table
+    method: PUT
+    path: /{tableName}/{rowKey}
+    parameters:
+      - name: tableName
+        in: path
+        required: true
+        type: string
+      - name: rowKey
+        in: path
+        required: true
+        type: string
+    tags:
+      - Rows
+
+  - operationId: getRow
+    name: Apache HBase Get Row
+    description: Get all cells for a specific row key from an HBase table
+    method: GET
+    path: /{tableName}/{rowKey}
+    parameters:
+      - name: tableName
+        in: path
+        required: true
+        type: string
+      - name: rowKey
+        in: path
+        required: true
+        type: string
+    tags:
+      - Rows
+
+  - operationId: createScanner
+    name: Apache HBase Create Scanner
+    description: Create a scanner to iterate over rows in an HBase table
+    method: PUT
+    path: /{tableName}/scanner
+    parameters:
+      - name: tableName
+        in: path
+        required: true
+        type: string
+    tags:
+      - Scans

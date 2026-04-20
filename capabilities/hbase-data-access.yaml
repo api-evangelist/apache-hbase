@@ -1,0 +1,100 @@
+name: Apache HBase Data Access
+description: Workflow capability for reading and writing data in Apache HBase distributed NoSQL database
+persona: Data Engineer
+workflow:
+  - step: list-tables
+    name: List HBase Tables
+    description: Discover available tables in the HBase cluster
+    capability: hbase-rest
+    operation: listTables
+    server:
+      rest: http://localhost:8080
+      mcp: http://localhost:9090
+
+  - step: get-schema
+    name: Get Table Schema
+    description: Retrieve column family configuration for a target table
+    capability: hbase-rest
+    operation: getTableSchema
+    server:
+      rest: http://localhost:8080
+      mcp: http://localhost:9090
+
+  - step: write-row
+    name: Write Row
+    description: Put a row with cell data into an HBase table
+    capability: hbase-rest
+    operation: putRow
+    server:
+      rest: http://localhost:8080
+      mcp: http://localhost:9090
+
+  - step: read-row
+    name: Read Row
+    description: Get all cells for a row key from an HBase table
+    capability: hbase-rest
+    operation: getRow
+    server:
+      rest: http://localhost:8080
+      mcp: http://localhost:9090
+
+tools:
+  - name: listTables
+    description: List all tables in the HBase cluster
+    server:
+      rest:
+        baseUrl: http://localhost:8080
+        path: /
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/listTables
+        method: POST
+
+  - name: getTableSchema
+    description: Get the column family schema for an HBase table
+    server:
+      rest:
+        baseUrl: http://localhost:8080
+        path: /{tableName}/schema
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/getTableSchema
+        method: POST
+
+  - name: putRow
+    description: Write cells to a row in an HBase table
+    server:
+      rest:
+        baseUrl: http://localhost:8080
+        path: /{tableName}/{rowKey}
+        method: PUT
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/putRow
+        method: POST
+
+  - name: getRow
+    description: Read all cells for a row key from an HBase table
+    server:
+      rest:
+        baseUrl: http://localhost:8080
+        path: /{tableName}/{rowKey}
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/getRow
+        method: POST
+
+  - name: createScanner
+    description: Create a scanner to iterate over rows in an HBase table
+    server:
+      rest:
+        baseUrl: http://localhost:8080
+        path: /{tableName}/scanner
+        method: PUT
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/createScanner
+        method: POST

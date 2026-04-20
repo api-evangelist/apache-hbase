@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-structure/hbase-rest-tablelist-structure.json",
+  "title": "TableList",
+  "type": "object",
+  "properties": {
+    "table": "array"
+  }
+}

@@ -1,0 +1,47 @@
+name: Apache HBase Vocabulary
+description: Unified taxonomy for Apache HBase REST API resources, actions, workflows, and personas
+version: "1.0.0"
+
+resources:
+  - name: Table
+    description: HBase table with column family schema
+    openapi: "#/components/schemas/TableSchema"
+    capability: hbase-rest
+  - name: Row
+    description: A row of cells in an HBase table identified by a row key
+    openapi: "#/components/schemas/CellSet"
+    capability: hbase-rest
+  - name: Scanner
+    description: HBase scanner for iterating over rows with optional filters
+    openapi: "#/components/schemas/Scanner"
+    capability: hbase-rest
+  - name: Region
+    description: HBase region with server assignment and key range
+    openapi: "#/components/schemas/TableRegions"
+    capability: hbase-rest
+
+actions:
+  - name: List
+    description: List available tables in the cluster
+    operationId: listTables
+  - name: Get
+    description: Retrieve a table schema, row, or region info
+    operationId: getTableSchema
+  - name: Put
+    description: Write row data to an HBase table
+    operationId: putRow
+  - name: Scan
+    description: Create and iterate over a table scanner
+    operationId: createScanner
+  - name: Delete
+    description: Delete a table or row from HBase
+    operationId: deleteTable
+
+workflows:
+  - name: Apache HBase Data Access
+    description: Read and write data in Apache HBase distributed NoSQL database
+    capability: hbase-data-access.yaml
+
+personas:
+  - name: Data Engineer
+    description: Engineer who reads and writes structured data in HBase for batch and real-time pipelines

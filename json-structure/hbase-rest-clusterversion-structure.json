@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-structure/hbase-rest-clusterversion-structure.json",
+  "title": "ClusterVersion",
+  "type": "object",
+  "properties": {
+    "Server": "string",
+    "JVM": "string",
+    "OS": "string",
+    "REST": "string",
+    "Jersey": "string"
+  }
+}

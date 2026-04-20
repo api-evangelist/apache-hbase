@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-schema/hbase-rest-tablelist-schema.json",
+  "title": "TableList",
+  "type": "object",
+  "description": "List of HBase tables",
+  "properties": {
+    "table": {
+      "type": "array",
+      "description": "Array of table names",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "my-table"
+          }
+        }
+      }
+    }
+  }
+}

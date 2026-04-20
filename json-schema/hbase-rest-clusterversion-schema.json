@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-schema/hbase-rest-clusterversion-schema.json",
+  "title": "ClusterVersion",
+  "type": "object",
+  "description": "HBase cluster version information",
+  "properties": {
+    "Server": {
+      "type": "string",
+      "description": "HBase server version",
+      "example": "2.5.7"
+    },
+    "JVM": {
+      "type": "string",
+      "description": "JVM version",
+      "example": "Oracle Corporation 11.0.20"
+    },
+    "OS": {
+      "type": "string",
+      "description": "Operating system",
+      "example": "Linux 5.15.0"
+    },
+    "REST": {
+      "type": "string",
+      "description": "REST API version",
+      "example": "0.0.3"
+    },
+    "Jersey": {
+      "type": "string",
+      "description": "Jersey framework version",
+      "example": "1.19"
+    }
+  }
+}

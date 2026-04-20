@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-structure/hbase-rest-tableregions-structure.json",
+  "title": "TableRegions",
+  "type": "object",
+  "properties": {
+    "name": "string",
+    "Region": "array"
+  }
+}

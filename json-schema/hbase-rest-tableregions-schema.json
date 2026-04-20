@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-schema/hbase-rest-tableregions-schema.json",
+  "title": "TableRegions",
+  "type": "object",
+  "description": "Region layout for an HBase table",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "my-table"
+    },
+    "Region": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1718153645993
+          },
+          "startKey": {
+            "type": "string",
+            "example": ""
+          },
+          "endKey": {
+            "type": "string",
+            "example": "row500"
+          },
+          "location": {
+            "type": "string",
+            "example": "regionserver1:16020"
+          },
+          "name": {
+            "type": "string",
+            "example": "my-table,,1718153645993.abc123."
+          }
+        }
+      }
+    }
+  }
+}

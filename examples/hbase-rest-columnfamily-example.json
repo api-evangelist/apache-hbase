@@ -1,0 +1,7 @@
+{
+  "name": "cf1",
+  "VERSIONS": "3",
+  "COMPRESSION": "SNAPPY",
+  "BLOOMFILTER": "ROW",
+  "TTL": "2147483647"
+}

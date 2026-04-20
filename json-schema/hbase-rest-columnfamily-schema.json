@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-hbase/json-schema/hbase-rest-columnfamily-schema.json",
+  "title": "ColumnFamily",
+  "type": "object",
+  "description": "HBase column family configuration",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "cf1"
+    },
+    "VERSIONS": {
+      "type": "string",
+      "example": "3"
+    },
+    "COMPRESSION": {
+      "type": "string",
+      "example": "SNAPPY"
+    },
+    "BLOOMFILTER": {
+      "type": "string",
+      "example": "ROW"
+    },
+    "TTL": {
+      "type": "string",
+      "example": "2147483647"
+    }
+  }
+}

@@ -1,0 +1,502 @@
+openapi: 3.0.3
+info:
+  title: Apache HBase REST API
+  version: 1.0.0
+  description: REST API (Stargate) for Apache HBase distributed NoSQL database, providing
+    table management, row and cell operations, and table scanning via HTTP.
+  contact:
+    email: dev@hbase.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080
+  description: HBase REST Gateway (Stargate)
+tags:
+- name: Tables
+  description: Table management operations
+- name: Rows
+  description: Row and cell operations
+- name: Scans
+  description: Table scanning operations
+- name: Regions
+  description: Region information
+paths:
+  /version/cluster:
+    get:
+      operationId: getClusterVersion
+      summary: Apache HBase Get Cluster Version
+      description: Get the version information of the HBase cluster.
+      tags:
+      - Tables
+      responses:
+        '200':
+          description: Version info retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterVersion'
+  /:
+    get:
+      operationId: listTables
+      summary: Apache HBase List Tables
+      description: List all tables in the HBase cluster.
+      tags:
+      - Tables
+      responses:
+        '200':
+          description: Tables listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableList'
+  /{tableName}/schema:
+    get:
+      operationId: getTableSchema
+      summary: Apache HBase Get Table Schema
+      description: Get the schema (column families) for an HBase table.
+      tags:
+      - Tables
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+        description: HBase table name
+      responses:
+        '200':
+          description: Schema retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableSchema'
+        '404':
+          description: Table not found
+    put:
+      operationId: createOrUpdateTableSchema
+      summary: Apache HBase Create Or Update Table Schema
+      description: Create or update an HBase table with the provided column family
+        schema.
+      tags:
+      - Tables
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TableSchema'
+      responses:
+        '201':
+          description: Table created or updated
+        '400':
+          description: Invalid schema
+    delete:
+      operationId: deleteTable
+      summary: Apache HBase Delete Table
+      description: Delete an HBase table.
+      tags:
+      - Tables
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Table deleted
+        '404':
+          description: Table not found
+  /{tableName}/{rowKey}:
+    get:
+      operationId: getRow
+      summary: Apache HBase Get Row
+      description: Get all cells for a specific row key from an HBase table.
+      tags:
+      - Rows
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rowKey
+        in: path
+        required: true
+        schema:
+          type: string
+        description: URL-encoded row key
+      responses:
+        '200':
+          description: Row retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CellSet'
+        '404':
+          description: Row not found
+    put:
+      operationId: putRow
+      summary: Apache HBase Put Row
+      description: Write one or more cells to a specific row key in an HBase table.
+      tags:
+      - Rows
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rowKey
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CellSet'
+      responses:
+        '200':
+          description: Row written successfully
+        '400':
+          description: Invalid data
+    delete:
+      operationId: deleteRow
+      summary: Apache HBase Delete Row
+      description: Delete a row and all its cells from an HBase table.
+      tags:
+      - Rows
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rowKey
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Row deleted
+        '404':
+          description: Row not found
+  /{tableName}/{rowKey}/{column}:
+    get:
+      operationId: getCell
+      summary: Apache HBase Get Cell
+      description: Get a specific cell value identified by table, row key, and column
+        (family:qualifier).
+      tags:
+      - Rows
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rowKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: column
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Column in family:qualifier format (URL-encoded)
+      responses:
+        '200':
+          description: Cell retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CellSet'
+        '404':
+          description: Cell not found
+  /{tableName}/scanner:
+    put:
+      operationId: createScanner
+      summary: Apache HBase Create Scanner
+      description: Create a scanner to iterate over rows in an HBase table with optional
+        filters.
+      tags:
+      - Scans
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Scanner'
+      responses:
+        '201':
+          description: Scanner created
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to the created scanner
+  /{tableName}/scanner/{scannerId}:
+    get:
+      operationId: getNextScannerBatch
+      summary: Apache HBase Get Next Scanner Batch
+      description: Get the next batch of rows from an open HBase scanner.
+      tags:
+      - Scans
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: scannerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Batch retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CellSet'
+        '204':
+          description: No more rows (scan complete)
+    delete:
+      operationId: deleteScanner
+      summary: Apache HBase Delete Scanner
+      description: Close and delete an open HBase scanner.
+      tags:
+      - Scans
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: scannerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Scanner closed
+  /{tableName}/regions:
+    get:
+      operationId: getTableRegions
+      summary: Apache HBase Get Table Regions
+      description: Get region information for an HBase table including server assignments
+        and key ranges.
+      tags:
+      - Regions
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Regions retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableRegions'
+components:
+  schemas:
+    ClusterVersion:
+      type: object
+      description: HBase cluster version information
+      properties:
+        Server:
+          type: string
+          description: HBase server version
+          example: 2.5.7
+        JVM:
+          type: string
+          description: JVM version
+          example: Oracle Corporation 11.0.20
+        OS:
+          type: string
+          description: Operating system
+          example: Linux 5.15.0
+        REST:
+          type: string
+          description: REST API version
+          example: 0.0.3
+        Jersey:
+          type: string
+          description: Jersey framework version
+          example: '1.19'
+    TableList:
+      type: object
+      description: List of HBase tables
+      properties:
+        table:
+          type: array
+          description: Array of table names
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Table name
+                example: my-table
+    TableSchema:
+      type: object
+      description: HBase table schema with column family definitions
+      properties:
+        name:
+          type: string
+          description: Table name
+          example: my-table
+        ColumnSchema:
+          type: array
+          description: Column family definitions
+          items:
+            $ref: '#/components/schemas/ColumnFamily'
+    ColumnFamily:
+      type: object
+      description: HBase column family configuration
+      properties:
+        name:
+          type: string
+          description: Column family name
+          example: cf1
+        VERSIONS:
+          type: string
+          description: Max cell versions to retain
+          example: '3'
+        COMPRESSION:
+          type: string
+          description: Compression algorithm
+          example: SNAPPY
+        BLOOMFILTER:
+          type: string
+          description: Bloom filter type
+          example: ROW
+        TTL:
+          type: string
+          description: Time-to-live in seconds
+          example: '2147483647'
+    CellSet:
+      type: object
+      description: Set of HBase cells grouped by row
+      properties:
+        Row:
+          type: array
+          description: Array of row objects
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+                description: Base64-encoded row key
+                example: cm93a2V5MQ==
+              Cell:
+                type: array
+                description: Array of cells in the row
+                items:
+                  $ref: '#/components/schemas/Cell'
+    Cell:
+      type: object
+      description: Single HBase cell with column and value
+      properties:
+        column:
+          type: string
+          description: Base64-encoded column (family:qualifier)
+          example: Y2YxOnF1YWw=
+        timestamp:
+          type: integer
+          format: int64
+          description: Cell timestamp in milliseconds
+          example: 1718153645993
+        $:
+          type: string
+          description: Base64-encoded cell value
+          example: dmFsdWU=
+    Scanner:
+      type: object
+      description: HBase scanner configuration for table scans
+      properties:
+        startRow:
+          type: string
+          description: Base64-encoded start row key (inclusive)
+          example: cm93MQ==
+        endRow:
+          type: string
+          description: Base64-encoded end row key (exclusive)
+          example: cm93Mg==
+        column:
+          type: array
+          items:
+            type: string
+          description: Base64-encoded column filters
+          example:
+          - Y2YxOnF1YWw=
+        batch:
+          type: integer
+          description: Number of rows per batch
+          example: 100
+        maxVersions:
+          type: integer
+          description: Max cell versions to return
+          example: 1
+        filter:
+          type: string
+          description: URL-encoded filter string
+    TableRegions:
+      type: object
+      description: Region layout for an HBase table
+      properties:
+        name:
+          type: string
+          description: Table name
+          example: my-table
+        Region:
+          type: array
+          description: List of regions
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+                description: Region ID
+                example: 1718153645993
+              startKey:
+                type: string
+                description: Region start key
+                example: ''
+              endKey:
+                type: string
+                description: Region end key
+                example: row500
+              location:
+                type: string
+                description: RegionServer hostname:port
+                example: regionserver1:16020
+              name:
+                type: string
+                description: Region name
+                example: my-table,,1718153645993.abc123.
