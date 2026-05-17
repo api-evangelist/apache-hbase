@@ -40,7 +40,7 @@ apis:
         url: openapi/apache-hbase-rest-openapi.yml
       - type: JSONSchema
         url: json-schema/hbase-rest-tableschema-schema.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/apache-hbase-rest-context.jsonld
 
   - aid: apache-hbase:apache-hbase-java-api
