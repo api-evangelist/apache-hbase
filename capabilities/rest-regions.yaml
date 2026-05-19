@@ -1,0 +1,76 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache HBase REST API — Regions
+  description: 'Apache HBase REST API — Regions. 1 operations. Lead operation: Apache HBase Get Table Regions. Self-contained
+    Naftiko capability covering one Apache Hbase business surface.'
+  tags:
+  - Apache Hbase
+  - Regions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_HBASE_API_KEY: APACHE_HBASE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-regions
+    baseUri: http://localhost:8080
+    description: Apache HBase REST API — Regions business capability. Self-contained, no shared references.
+    resources:
+    - name: tableName-regions
+      path: /{tableName}/regions
+      operations:
+      - name: gettableregions
+        method: GET
+        description: Apache HBase Get Table Regions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: tableName
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: rest-regions-rest
+    port: 8080
+    description: REST adapter for Apache HBase REST API — Regions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/{tablename}/regions
+      name: tablename-regions
+      description: REST surface for tableName-regions.
+      operations:
+      - method: GET
+        name: gettableregions
+        description: Apache HBase Get Table Regions
+        call: rest-regions.gettableregions
+        with:
+          tableName: rest.tableName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-regions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache HBase REST API — Regions. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: apache-hbase-get-table-regions
+      description: Apache HBase Get Table Regions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-regions.gettableregions
+      with:
+        tableName: tools.tableName
+      outputParameters:
+      - type: object
+        mapping: $.

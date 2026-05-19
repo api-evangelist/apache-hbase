@@ -1,0 +1,216 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache HBase REST API — Tables
+  description: 'Apache HBase REST API — Tables. 5 operations. Lead operation: Apache HBase List Tables. Self-contained Naftiko
+    capability covering one Apache Hbase business surface.'
+  tags:
+  - Apache Hbase
+  - Tables
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_HBASE_API_KEY: APACHE_HBASE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-tables
+    baseUri: http://localhost:8080
+    description: Apache HBase REST API — Tables business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: listtables
+        method: GET
+        description: Apache HBase List Tables
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: version-cluster
+      path: /version/cluster
+      operations:
+      - name: getclusterversion
+        method: GET
+        description: Apache HBase Get Cluster Version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: tableName-schema
+      path: /{tableName}/schema
+      operations:
+      - name: gettableschema
+        method: GET
+        description: Apache HBase Get Table Schema
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: tableName
+          in: path
+          type: string
+          description: HBase table name
+          required: true
+      - name: createorupdatetableschema
+        method: PUT
+        description: Apache HBase Create Or Update Table Schema
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: tableName
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletetable
+        method: DELETE
+        description: Apache HBase Delete Table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: tableName
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: rest-tables-rest
+    port: 8080
+    description: REST adapter for Apache HBase REST API — Tables. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: GET
+        name: listtables
+        description: Apache HBase List Tables
+        call: rest-tables.listtables
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/version/cluster
+      name: version-cluster
+      description: REST surface for version-cluster.
+      operations:
+      - method: GET
+        name: getclusterversion
+        description: Apache HBase Get Cluster Version
+        call: rest-tables.getclusterversion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{tablename}/schema
+      name: tablename-schema
+      description: REST surface for tableName-schema.
+      operations:
+      - method: GET
+        name: gettableschema
+        description: Apache HBase Get Table Schema
+        call: rest-tables.gettableschema
+        with:
+          tableName: rest.tableName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: createorupdatetableschema
+        description: Apache HBase Create Or Update Table Schema
+        call: rest-tables.createorupdatetableschema
+        with:
+          tableName: rest.tableName
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletetable
+        description: Apache HBase Delete Table
+        call: rest-tables.deletetable
+        with:
+          tableName: rest.tableName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-tables-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache HBase REST API — Tables. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: apache-hbase-list-tables
+      description: Apache HBase List Tables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-tables.listtables
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-hbase-get-cluster-version
+      description: Apache HBase Get Cluster Version
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-tables.getclusterversion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-hbase-get-table-schema
+      description: Apache HBase Get Table Schema
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-tables.gettableschema
+      with:
+        tableName: tools.tableName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-hbase-create-update-table
+      description: Apache HBase Create Or Update Table Schema
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-tables.createorupdatetableschema
+      with:
+        tableName: tools.tableName
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-hbase-delete-table
+      description: Apache HBase Delete Table
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-tables.deletetable
+      with:
+        tableName: tools.tableName
+      outputParameters:
+      - type: object
+        mapping: $.
