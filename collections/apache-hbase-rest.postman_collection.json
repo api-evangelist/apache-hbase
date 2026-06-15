@@ -1,0 +1,1646 @@
+{
+  "item": [
+    {
+      "id": "1641c7ad-4ffb-4cca-95f8-42b3823897dc",
+      "name": "Tables",
+      "description": {
+        "content": "Table management operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "981dfc09-6504-4494-b4e1-be3728d9fa13",
+          "name": "Apache HBase Get Cluster Version",
+          "request": {
+            "name": "Apache HBase Get Cluster Version",
+            "description": {
+              "content": "Get the version information of the HBase cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "version",
+                "cluster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ffbade8-3584-4793-b4aa-144e1875744a",
+              "name": "Version info retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "version",
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Server\": \"2.5.7\",\n  \"JVM\": \"Oracle Corporation 11.0.20\",\n  \"OS\": \"Linux 5.15.0\",\n  \"REST\": \"0.0.3\",\n  \"Jersey\": \"1.19\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09255fa6-3b1b-4553-944b-d1940cb861bf",
+          "name": "Apache HBase List Tables",
+          "request": {
+            "name": "Apache HBase List Tables",
+            "description": {
+              "content": "List all tables in the HBase cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21eb9419-d1d9-4306-a994-544906684b52",
+              "name": "Tables listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table\": [\n    {\n      \"name\": \"my-table\"\n    },\n    {\n      \"name\": \"my-table\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "946e4de1-f367-49cf-9401-d829ace8302e",
+          "name": "Apache HBase Get Table Schema",
+          "request": {
+            "name": "Apache HBase Get Table Schema",
+            "description": {
+              "content": "Get the schema (column families) for an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) HBase table name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65d5622d-95f8-4ae4-a3ac-6c054cd611cf",
+              "name": "Schema retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) HBase table name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"my-table\",\n  \"ColumnSchema\": [\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    },\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cac904e8-c175-477c-ae0a-8b55f60118bf",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) HBase table name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cd2f612-d12a-41e8-a480-5b36a2443a19",
+          "name": "Apache HBase Create Or Update Table Schema",
+          "request": {
+            "name": "Apache HBase Create Or Update Table Schema",
+            "description": {
+              "content": "Create or update an HBase table with the provided column family schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"ColumnSchema\": [\n    {\n      \"name\": \"<string>\",\n      \"VERSIONS\": \"<string>\",\n      \"COMPRESSION\": \"<string>\",\n      \"BLOOMFILTER\": \"<string>\",\n      \"TTL\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"VERSIONS\": \"<string>\",\n      \"COMPRESSION\": \"<string>\",\n      \"BLOOMFILTER\": \"<string>\",\n      \"TTL\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0bd32f97-f1b5-4272-aec9-252c39bed250",
+              "name": "Table created or updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my-table\",\n  \"ColumnSchema\": [\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    },\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ccd55f7-4507-4900-921c-a0327c2b2c60",
+              "name": "Invalid schema",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my-table\",\n  \"ColumnSchema\": [\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    },\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "428df6bc-b2db-4a0a-8f6d-0dab0231cd38",
+          "name": "Apache HBase Delete Table",
+          "request": {
+            "name": "Apache HBase Delete Table",
+            "description": {
+              "content": "Delete an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bed31859-914c-4025-8783-c2ac76155ac8",
+              "name": "Table deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e509d5b3-5f13-484d-adc9-4a53973e4348",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "87bafb72-1c72-4958-889b-5f77e9949db4",
+      "name": "Rows",
+      "description": {
+        "content": "Row and cell operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "934ac5fb-4f89-4c4f-aacd-0b73b3783e18",
+          "name": "Apache HBase Get Row",
+          "request": {
+            "name": "Apache HBase Get Row",
+            "description": {
+              "content": "Get all cells for a specific row key from an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                ":rowKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rowKey",
+                  "description": "(Required) URL-encoded row key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4eed486-fdb5-49cf-8b93-340b09ee4d58",
+              "name": "Row retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) URL-encoded row key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3443ebe4-0dc1-4986-afaa-d8ced255d570",
+              "name": "Row not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) URL-encoded row key"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2bfaa5c-705b-4d66-8714-9f2080ce6809",
+          "name": "Apache HBase Put Row",
+          "request": {
+            "name": "Apache HBase Put Row",
+            "description": {
+              "content": "Write one or more cells to a specific row key in an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                ":rowKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rowKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Row\": [\n    {\n      \"key\": \"<string>\",\n      \"Cell\": [\n        {\n          \"column\": \"<string>\",\n          \"timestamp\": \"<long>\",\n          \"$\": \"<string>\"\n        },\n        {\n          \"column\": \"<string>\",\n          \"timestamp\": \"<long>\",\n          \"$\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"Cell\": [\n        {\n          \"column\": \"<string>\",\n          \"timestamp\": \"<long>\",\n          \"$\": \"<string>\"\n        },\n        {\n          \"column\": \"<string>\",\n          \"timestamp\": \"<long>\",\n          \"$\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3bfd8bd-7321-4044-b9eb-6cafc6495df5",
+              "name": "Row written successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6a152c1d-3e90-4de7-a0be-be88b3efeb26",
+              "name": "Invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac2346c4-25e3-4476-ae04-f54541b9da7b",
+          "name": "Apache HBase Delete Row",
+          "request": {
+            "name": "Apache HBase Delete Row",
+            "description": {
+              "content": "Delete a row and all its cells from an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                ":rowKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rowKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67f0b84f-d1ca-4449-aaba-fa2e25c8efb9",
+              "name": "Row deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "490950f6-4df8-4031-b508-c18449a48de3",
+              "name": "Row not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81bbd3f8-85cf-45fb-8d4d-1517fa501f50",
+          "name": "Apache HBase Get Cell",
+          "request": {
+            "name": "Apache HBase Get Cell",
+            "description": {
+              "content": "Get a specific cell value identified by table, row key, and column (family:qualifier).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                ":rowKey",
+                ":column"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rowKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "column",
+                  "description": "(Required) Column in family:qualifier format (URL-encoded)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70f16635-5260-494a-a1bb-c961c6c8c641",
+              "name": "Cell retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey",
+                    ":column"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "column",
+                      "description": "(Required) Column in family:qualifier format (URL-encoded)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "849e7c90-154f-48a8-80d6-8c2dc3eb61d8",
+              "name": "Cell not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey",
+                    ":column"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "column",
+                      "description": "(Required) Column in family:qualifier format (URL-encoded)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cedee8e5-f7bb-4000-84d0-03f0120ab59c",
+      "name": "Scans",
+      "description": {
+        "content": "Table scanning operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53be17a8-4621-451d-beb6-aea8f8791d70",
+          "name": "Apache HBase Create Scanner",
+          "request": {
+            "name": "Apache HBase Create Scanner",
+            "description": {
+              "content": "Create a scanner to iterate over rows in an HBase table with optional filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "scanner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startRow\": \"<string>\",\n  \"endRow\": \"<string>\",\n  \"column\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"batch\": \"<integer>\",\n  \"maxVersions\": \"<integer>\",\n  \"filter\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b4a7589-d93b-407b-82e2-236c5fdd71a7",
+              "name": "Scanner created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "scanner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startRow\": \"cm93MQ==\",\n  \"endRow\": \"cm93Mg==\",\n  \"column\": [\n    \"Y2YxOnF1YWw=\"\n  ],\n  \"batch\": 100,\n  \"maxVersions\": 1,\n  \"filter\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL to the created scanner",
+                  "key": "Location",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4e379dc-575a-41a2-afb2-09197d442c39",
+          "name": "Apache HBase Get Next Scanner Batch",
+          "request": {
+            "name": "Apache HBase Get Next Scanner Batch",
+            "description": {
+              "content": "Get the next batch of rows from an open HBase scanner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "scanner",
+                ":scannerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scannerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4fe662b-3bc9-4f9f-b2a7-777e49202c09",
+              "name": "Batch retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "scanner",
+                    ":scannerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scannerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a79a6853-357f-4a40-a0de-0cdc48f9380f",
+              "name": "No more rows (scan complete)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "scanner",
+                    ":scannerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scannerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34e2e8cb-e2e7-48ae-ac6c-b87000a9d246",
+          "name": "Apache HBase Delete Scanner",
+          "request": {
+            "name": "Apache HBase Delete Scanner",
+            "description": {
+              "content": "Close and delete an open HBase scanner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "scanner",
+                ":scannerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scannerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e7c1089-566b-460c-bd47-8376cca8751b",
+              "name": "Scanner closed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "scanner",
+                    ":scannerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scannerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bf1ad51c-9882-46a0-850d-83404ae79469",
+      "name": "Regions",
+      "description": {
+        "content": "Region information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "983798e9-61dd-41b7-9cca-c96f54dfe82c",
+          "name": "Apache HBase Get Table Regions",
+          "request": {
+            "name": "Apache HBase Get Table Regions",
+            "description": {
+              "content": "Get region information for an HBase table including server assignments and key ranges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20f07865-744a-42e0-b1e5-b484f125cda8",
+              "name": "Regions retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"my-table\",\n  \"Region\": [\n    {\n      \"id\": 1718153645993,\n      \"startKey\": \"\",\n      \"endKey\": \"row500\",\n      \"location\": \"regionserver1:16020\",\n      \"name\": \"my-table,,1718153645993.abc123.\"\n    },\n    {\n      \"id\": 1718153645993,\n      \"startKey\": \"\",\n      \"endKey\": \"row500\",\n      \"location\": \"regionserver1:16020\",\n      \"name\": \"my-table,,1718153645993.abc123.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "95a78780-3489-4946-89e2-8ff29f4ad093",
+    "name": "Apache HBase REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API (Stargate) for Apache HBase distributed NoSQL database, providing table management, row and cell operations, and table scanning via HTTP.\n\nContact Support:\n Email: dev@hbase.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

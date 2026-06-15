@@ -1,0 +1,312 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache HBase REST API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HBase Get Cluster Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/version/cluster"
+          },
+          "docs": "Get the version information of the HBase cluster."
+        },
+        {
+          "info": {
+            "name": "Apache HBase List Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/"
+          },
+          "docs": "List all tables in the HBase cluster."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Get Table Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/:tableName/schema",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "HBase table name"
+              }
+            ]
+          },
+          "docs": "Get the schema (column families) for an HBase table."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Create Or Update Table Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/:tableName/schema",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update an HBase table with the provided column family schema."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Delete Table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/:tableName/schema",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an HBase table."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HBase Get Row",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/:tableName/:rowKey",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowKey",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded row key"
+              }
+            ]
+          },
+          "docs": "Get all cells for a specific row key from an HBase table."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Put Row",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/:tableName/:rowKey",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Write one or more cells to a specific row key in an HBase table."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Delete Row",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/:tableName/:rowKey",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a row and all its cells from an HBase table."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Get Cell",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/:tableName/:rowKey/:column",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "column",
+                "value": "",
+                "type": "path",
+                "description": "Column in family:qualifier format (URL-encoded)"
+              }
+            ]
+          },
+          "docs": "Get a specific cell value identified by table, row key, and column (family:qualifier)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HBase Create Scanner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/:tableName/scanner",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a scanner to iterate over rows in an HBase table with optional filters."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Get Next Scanner Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/:tableName/scanner/:scannerId",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scannerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the next batch of rows from an open HBase scanner."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Delete Scanner",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/:tableName/scanner/:scannerId",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scannerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Close and delete an open HBase scanner."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Regions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HBase Get Table Regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/:tableName/regions",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get region information for an HBase table including server assignments and key ranges."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
