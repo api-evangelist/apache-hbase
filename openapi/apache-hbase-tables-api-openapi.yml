@@ -1,0 +1,185 @@
+openapi: 3.0.3
+info:
+  title: Apache HBase REST Regions Tables API
+  version: 1.0.0
+  description: REST API (Stargate) for Apache HBase distributed NoSQL database, providing table management, row and cell operations, and table scanning via HTTP.
+  contact:
+    email: dev@hbase.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080
+  description: HBase REST Gateway (Stargate)
+tags:
+- name: Tables
+  description: Table management operations
+paths:
+  /version/cluster:
+    get:
+      operationId: getClusterVersion
+      summary: Apache HBase Get Cluster Version
+      description: Get the version information of the HBase cluster.
+      tags:
+      - Tables
+      responses:
+        '200':
+          description: Version info retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterVersion'
+  /:
+    get:
+      operationId: listTables
+      summary: Apache HBase List Tables
+      description: List all tables in the HBase cluster.
+      tags:
+      - Tables
+      responses:
+        '200':
+          description: Tables listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableList'
+  /{tableName}/schema:
+    get:
+      operationId: getTableSchema
+      summary: Apache HBase Get Table Schema
+      description: Get the schema (column families) for an HBase table.
+      tags:
+      - Tables
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+        description: HBase table name
+      responses:
+        '200':
+          description: Schema retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableSchema'
+        '404':
+          description: Table not found
+    put:
+      operationId: createOrUpdateTableSchema
+      summary: Apache HBase Create Or Update Table Schema
+      description: Create or update an HBase table with the provided column family schema.
+      tags:
+      - Tables
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TableSchema'
+      responses:
+        '201':
+          description: Table created or updated
+        '400':
+          description: Invalid schema
+    delete:
+      operationId: deleteTable
+      summary: Apache HBase Delete Table
+      description: Delete an HBase table.
+      tags:
+      - Tables
+      parameters:
+      - name: tableName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Table deleted
+        '404':
+          description: Table not found
+components:
+  schemas:
+    TableList:
+      type: object
+      description: List of HBase tables
+      properties:
+        table:
+          type: array
+          description: Array of table names
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Table name
+                example: my-table
+    ClusterVersion:
+      type: object
+      description: HBase cluster version information
+      properties:
+        Server:
+          type: string
+          description: HBase server version
+          example: 2.5.7
+        JVM:
+          type: string
+          description: JVM version
+          example: Oracle Corporation 11.0.20
+        OS:
+          type: string
+          description: Operating system
+          example: Linux 5.15.0
+        REST:
+          type: string
+          description: REST API version
+          example: 0.0.3
+        Jersey:
+          type: string
+          description: Jersey framework version
+          example: '1.19'
+    ColumnFamily:
+      type: object
+      description: HBase column family configuration
+      properties:
+        name:
+          type: string
+          description: Column family name
+          example: cf1
+        VERSIONS:
+          type: string
+          description: Max cell versions to retain
+          example: '3'
+        COMPRESSION:
+          type: string
+          description: Compression algorithm
+          example: SNAPPY
+        BLOOMFILTER:
+          type: string
+          description: Bloom filter type
+          example: ROW
+        TTL:
+          type: string
+          description: Time-to-live in seconds
+          example: '2147483647'
+    TableSchema:
+      type: object
+      description: HBase table schema with column family definitions
+      properties:
+        name:
+          type: string
+          description: Table name
+          example: my-table
+        ColumnSchema:
+          type: array
+          description: Column family definitions
+          items:
+            $ref: '#/components/schemas/ColumnFamily'
