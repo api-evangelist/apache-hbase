@@ -5,9 +5,21 @@ description: >-
   provides random, real-time read/write access to big data and runs on top of Apache Hadoop HDFS, offering a REST API
   (Stargate), Thrift API, and Java client API for table and cell-level operations.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-hbase.png
 tags:
   - Apache
   - Big Data
@@ -22,44 +34,86 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-hbase/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: apache-hbase:apache-hbase-rest-api
-    name: Apache HBase REST API
-    description: >-
-      REST API (Stargate) for Apache HBase distributed NoSQL database, providing table management, row and cell
-      operations, and table scanning via HTTP with JSON or XML encoding.
-    humanURL: https://hbase.apache.org/book.html#_rest
-    baseURL: http://localhost:8080
-    tags:
-      - Cells
-      - NoSQL
-      - REST
-      - Rows
-      - Tables
-    properties:
-      - type: Documentation
-        url: https://hbase.apache.org/book.html#_rest
-      - type: OpenAPI
-        url: openapi/apache-hbase-rest-openapi.yml
-      - type: JSONSchema
-        url: json-schema/hbase-rest-tableschema-schema.json
-      - type: JSONLD
-        url: json-ld/apache-hbase-rest-context.jsonld
-  - aid: apache-hbase:apache-hbase-java-api
-    name: Apache HBase Java Client API
-    description: >-
-      Java client API for all HBase data operations including table administration, filters, coprocessors, batch
-      operations, and async client for high-throughput workloads.
-    humanURL: https://hbase.apache.org/apidocs/
-    tags:
-      - Java
-      - NoSQL
-      - SDK
-    properties:
-      - type: Documentation
-        url: https://hbase.apache.org/apidocs/
-      - type: SDKs
-        url: https://search.maven.org/artifact/org.apache.hbase/hbase-client
-        title: Java SDK (Maven Central)
+- aid: apache-hbase:apache-hbase-java-api
+  name: Apache HBase Java Client API
+  description: >-
+    Java client API for all HBase data operations including table administration, filters, coprocessors,
+    batch operations, and async client for high-throughput workloads.
+  humanURL: https://hbase.apache.org/apidocs/
+  tags:
+  - Java
+  - NoSQL
+  - SDK
+  properties:
+  - type: Documentation
+    url: https://hbase.apache.org/apidocs/
+  - type: SDKs
+    url: https://search.maven.org/artifact/org.apache.hbase/hbase-client
+    title: Java SDK (Maven Central)
+- aid: apache-hbase:apache-hbase-regions-api
+  name: Apache HBase Regions API
+  description: Region information
+  humanURL: https://hbase.apache.org/book.html#_rest
+  baseURL: http://localhost:8080
+  tags:
+  - Regions
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-hbase-regions-api-openapi.yml
+  - type: Documentation
+    url: https://hbase.apache.org/book.html#_rest
+  - type: JSONSchema
+    url: json-schema/hbase-rest-tableschema-schema.json
+  - type: JSONLD
+    url: json-ld/apache-hbase-rest-context.jsonld
+- aid: apache-hbase:apache-hbase-rows-api
+  name: Apache HBase Rows API
+  description: Row and cell operations
+  humanURL: https://hbase.apache.org/book.html#_rest
+  baseURL: http://localhost:8080
+  tags:
+  - Rows
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-hbase-rows-api-openapi.yml
+  - type: Documentation
+    url: https://hbase.apache.org/book.html#_rest
+  - type: JSONSchema
+    url: json-schema/hbase-rest-tableschema-schema.json
+  - type: JSONLD
+    url: json-ld/apache-hbase-rest-context.jsonld
+- aid: apache-hbase:apache-hbase-scans-api
+  name: Apache HBase Scans API
+  description: Table scanning operations
+  humanURL: https://hbase.apache.org/book.html#_rest
+  baseURL: http://localhost:8080
+  tags:
+  - Scans
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-hbase-scans-api-openapi.yml
+  - type: Documentation
+    url: https://hbase.apache.org/book.html#_rest
+  - type: JSONSchema
+    url: json-schema/hbase-rest-tableschema-schema.json
+  - type: JSONLD
+    url: json-ld/apache-hbase-rest-context.jsonld
+- aid: apache-hbase:apache-hbase-tables-api
+  name: Apache HBase Tables API
+  description: Table management operations
+  humanURL: https://hbase.apache.org/book.html#_rest
+  baseURL: http://localhost:8080
+  tags:
+  - Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-hbase-tables-api-openapi.yml
+  - type: Documentation
+    url: https://hbase.apache.org/book.html#_rest
+  - type: JSONSchema
+    url: json-schema/hbase-rest-tableschema-schema.json
+  - type: JSONLD
+    url: json-ld/apache-hbase-rest-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/apache-hbase-agentic-access.yml
