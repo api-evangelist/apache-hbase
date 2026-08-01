@@ -1,0 +1,20 @@
+{
+  "provider": "apache-hbase",
+  "sources": [
+    "apache-hbase-regions-api-openapi.yml",
+    "apache-hbase-rows-api-openapi.yml",
+    "apache-hbase-scans-api-openapi.yml",
+    "apache-hbase-tables-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-hbase-regions-api-openapi.yml",
+    "apache-hbase-rows-api-openapi.yml",
+    "apache-hbase-scans-api-openapi.yml",
+    "apache-hbase-tables-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
