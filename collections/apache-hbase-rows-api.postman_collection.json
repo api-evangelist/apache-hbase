@@ -1,0 +1,651 @@
+{
+  "item": [
+    {
+      "id": "a715df80-dce7-4542-b605-e7a558d00119",
+      "name": "Rows",
+      "description": {
+        "content": "Row and cell operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b815414-c98f-474f-9b48-621b90ae59a1",
+          "name": "Apache HBase Get Row",
+          "request": {
+            "name": "Apache HBase Get Row",
+            "description": {
+              "content": "Get all cells for a specific row key from an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                ":rowKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rowKey",
+                  "description": "(Required) URL-encoded row key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48209a58-455a-4a47-86c5-b7f1ad6182ef",
+              "name": "Row retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) URL-encoded row key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e6d665b-af40-49ee-a11a-8c35d44ce330",
+              "name": "Row not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) URL-encoded row key"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0c36eb5-c4a7-48ce-8dcf-40bd2025c2cd",
+          "name": "Apache HBase Put Row",
+          "request": {
+            "name": "Apache HBase Put Row",
+            "description": {
+              "content": "Write one or more cells to a specific row key in an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                ":rowKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rowKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Row\": [\n    {\n      \"key\": \"<string>\",\n      \"Cell\": [\n        {\n          \"column\": \"<string>\",\n          \"timestamp\": \"<long>\",\n          \"$\": \"<string>\"\n        },\n        {\n          \"column\": \"<string>\",\n          \"timestamp\": \"<long>\",\n          \"$\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"Cell\": [\n        {\n          \"column\": \"<string>\",\n          \"timestamp\": \"<long>\",\n          \"$\": \"<string>\"\n        },\n        {\n          \"column\": \"<string>\",\n          \"timestamp\": \"<long>\",\n          \"$\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8e3073c-8214-4b47-96b4-15dec97ee398",
+              "name": "Row written successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "437aafdc-aac8-43bd-b198-edd517f96645",
+              "name": "Invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0e54a1f-b829-406a-b839-84361047bebf",
+          "name": "Apache HBase Delete Row",
+          "request": {
+            "name": "Apache HBase Delete Row",
+            "description": {
+              "content": "Delete a row and all its cells from an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                ":rowKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rowKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4020cd8-4b0e-4309-924a-6ec2f6cbcc52",
+              "name": "Row deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "47bb0825-b944-47d0-9460-cbfc4005bd20",
+              "name": "Row not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0995b6e-50ba-458e-a7e7-4da399f9f279",
+          "name": "Apache HBase Get Cell",
+          "request": {
+            "name": "Apache HBase Get Cell",
+            "description": {
+              "content": "Get a specific cell value identified by table, row key, and column (family:qualifier).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                ":rowKey",
+                ":column"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rowKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "column",
+                  "description": "(Required) Column in family:qualifier format (URL-encoded)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ed27afe-e40a-47cd-9f47-5a21869038cb",
+              "name": "Cell retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey",
+                    ":column"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "column",
+                      "description": "(Required) Column in family:qualifier format (URL-encoded)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a388aaf6-7c80-4c04-8a62-72c3e3db90f3",
+              "name": "Cell not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    ":rowKey",
+                    ":column"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rowKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "column",
+                      "description": "(Required) Column in family:qualifier format (URL-encoded)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "60afffdc-8f8e-43cd-88c7-ea95ad7a6255",
+    "name": "Apache HBase REST Regions Rows API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API (Stargate) for Apache HBase distributed NoSQL database, providing table management, row and cell operations, and table scanning via HTTP.\n\nContact Support:\n Email: dev@hbase.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

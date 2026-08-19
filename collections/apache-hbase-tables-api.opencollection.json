@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache HBase REST Regions Tables API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HBase Get Cluster Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/version/cluster"
+          },
+          "docs": "Get the version information of the HBase cluster."
+        },
+        {
+          "info": {
+            "name": "Apache HBase List Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/"
+          },
+          "docs": "List all tables in the HBase cluster."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Get Table Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/:tableName/schema",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path",
+                "description": "HBase table name"
+              }
+            ]
+          },
+          "docs": "Get the schema (column families) for an HBase table."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Create Or Update Table Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/:tableName/schema",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update an HBase table with the provided column family schema."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Delete Table",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/:tableName/schema",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an HBase table."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

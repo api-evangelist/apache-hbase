@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache HBase REST Regions Rows API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HBase Get Row",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/:tableName/:rowKey",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowKey",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded row key"
+              }
+            ]
+          },
+          "docs": "Get all cells for a specific row key from an HBase table."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Put Row",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/:tableName/:rowKey",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Write one or more cells to a specific row key in an HBase table."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Delete Row",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/:tableName/:rowKey",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a row and all its cells from an HBase table."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Get Cell",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/:tableName/:rowKey/:column",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rowKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "column",
+                "value": "",
+                "type": "path",
+                "description": "Column in family:qualifier format (URL-encoded)"
+              }
+            ]
+          },
+          "docs": "Get a specific cell value identified by table, row key, and column (family:qualifier)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

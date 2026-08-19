@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "2b1b20da-0089-486b-ab8b-8a647562afe9",
+      "name": "Regions",
+      "description": {
+        "content": "Region information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a47599e2-1686-4e56-ac0c-5de283392bf0",
+          "name": "Apache HBase Get Table Regions",
+          "request": {
+            "name": "Apache HBase Get Table Regions",
+            "description": {
+              "content": "Get region information for an HBase table including server assignments and key ranges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29006264-0b07-4912-a7aa-b14789b8a922",
+              "name": "Regions retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"my-table\",\n  \"Region\": [\n    {\n      \"id\": 1718153645993,\n      \"startKey\": \"\",\n      \"endKey\": \"row500\",\n      \"location\": \"regionserver1:16020\",\n      \"name\": \"my-table,,1718153645993.abc123.\"\n    },\n    {\n      \"id\": 1718153645993,\n      \"startKey\": \"\",\n      \"endKey\": \"row500\",\n      \"location\": \"regionserver1:16020\",\n      \"name\": \"my-table,,1718153645993.abc123.\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "13c31fe6-cdf3-4623-932b-4d0747324aea",
+    "name": "Apache HBase REST Regions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API (Stargate) for Apache HBase distributed NoSQL database, providing table management, row and cell operations, and table scanning via HTTP.\n\nContact Support:\n Email: dev@hbase.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

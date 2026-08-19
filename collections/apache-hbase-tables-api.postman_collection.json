@@ -1,0 +1,559 @@
+{
+  "item": [
+    {
+      "id": "f79bfb02-dc88-4c0f-a133-31c4480f699a",
+      "name": "Tables",
+      "description": {
+        "content": "Table management operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f557435-8465-49ab-9fb0-97a039ad2f2c",
+          "name": "Apache HBase Get Cluster Version",
+          "request": {
+            "name": "Apache HBase Get Cluster Version",
+            "description": {
+              "content": "Get the version information of the HBase cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "version",
+                "cluster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "774d37e8-99c4-40e6-852e-565eaf42a57c",
+              "name": "Version info retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "version",
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Server\": \"2.5.7\",\n  \"JVM\": \"Oracle Corporation 11.0.20\",\n  \"OS\": \"Linux 5.15.0\",\n  \"REST\": \"0.0.3\",\n  \"Jersey\": \"1.19\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cfe79b4-81ed-469b-814b-33631beaa229",
+          "name": "Apache HBase List Tables",
+          "request": {
+            "name": "Apache HBase List Tables",
+            "description": {
+              "content": "List all tables in the HBase cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "856988f9-af35-4a0d-874c-54ce443c7e7a",
+              "name": "Tables listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"table\": [\n    {\n      \"name\": \"my-table\"\n    },\n    {\n      \"name\": \"my-table\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f38d8f62-dcf8-4923-a852-05c3882641b9",
+          "name": "Apache HBase Get Table Schema",
+          "request": {
+            "name": "Apache HBase Get Table Schema",
+            "description": {
+              "content": "Get the schema (column families) for an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) HBase table name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "caba2750-750b-413e-ae2d-78fe88a786bf",
+              "name": "Schema retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) HBase table name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"my-table\",\n  \"ColumnSchema\": [\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    },\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e030445c-e04a-48e9-be52-81f519c41d20",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) HBase table name"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41a4b149-a845-4da7-bdc0-595d6f8c0d44",
+          "name": "Apache HBase Create Or Update Table Schema",
+          "request": {
+            "name": "Apache HBase Create Or Update Table Schema",
+            "description": {
+              "content": "Create or update an HBase table with the provided column family schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"ColumnSchema\": [\n    {\n      \"name\": \"<string>\",\n      \"VERSIONS\": \"<string>\",\n      \"COMPRESSION\": \"<string>\",\n      \"BLOOMFILTER\": \"<string>\",\n      \"TTL\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"VERSIONS\": \"<string>\",\n      \"COMPRESSION\": \"<string>\",\n      \"BLOOMFILTER\": \"<string>\",\n      \"TTL\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c68220e8-58d6-415d-a72e-490f6a4e81f4",
+              "name": "Table created or updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my-table\",\n  \"ColumnSchema\": [\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    },\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b85e8fc9-7054-438d-951c-a922ed153221",
+              "name": "Invalid schema",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my-table\",\n  \"ColumnSchema\": [\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    },\n    {\n      \"name\": \"cf1\",\n      \"VERSIONS\": \"3\",\n      \"COMPRESSION\": \"SNAPPY\",\n      \"BLOOMFILTER\": \"ROW\",\n      \"TTL\": \"2147483647\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cd47101-a4cf-4b00-b6e0-148483dd788d",
+          "name": "Apache HBase Delete Table",
+          "request": {
+            "name": "Apache HBase Delete Table",
+            "description": {
+              "content": "Delete an HBase table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "801ca9fb-a56e-48dd-ba80-cde83ef232b2",
+              "name": "Table deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5c0e132-cba7-4fae-8ba1-ce30c1df05b0",
+              "name": "Table not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a8dbe6d9-c39c-4e39-b3b6-47535aa971e5",
+    "name": "Apache HBase REST Regions Tables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API (Stargate) for Apache HBase distributed NoSQL database, providing table management, row and cell operations, and table scanning via HTTP.\n\nContact Support:\n Email: dev@hbase.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

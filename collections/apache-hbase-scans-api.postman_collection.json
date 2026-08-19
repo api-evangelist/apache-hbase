@@ -1,0 +1,379 @@
+{
+  "item": [
+    {
+      "id": "477ac323-1ed8-4158-a1ff-64d3f88ff5e1",
+      "name": "Scans",
+      "description": {
+        "content": "Table scanning operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "feded55e-2f3f-468f-a8e4-9cc9378a1078",
+          "name": "Apache HBase Create Scanner",
+          "request": {
+            "name": "Apache HBase Create Scanner",
+            "description": {
+              "content": "Create a scanner to iterate over rows in an HBase table with optional filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "scanner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startRow\": \"<string>\",\n  \"endRow\": \"<string>\",\n  \"column\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"batch\": \"<integer>\",\n  \"maxVersions\": \"<integer>\",\n  \"filter\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9fb5232a-a78d-434d-99aa-9ad0fbcc266f",
+              "name": "Scanner created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "scanner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startRow\": \"cm93MQ==\",\n  \"endRow\": \"cm93Mg==\",\n  \"column\": [\n    \"Y2YxOnF1YWw=\"\n  ],\n  \"batch\": 100,\n  \"maxVersions\": 1,\n  \"filter\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL to the created scanner",
+                  "key": "Location",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d09da97-5550-4c6a-a3b7-5f62379cf5a7",
+          "name": "Apache HBase Get Next Scanner Batch",
+          "request": {
+            "name": "Apache HBase Get Next Scanner Batch",
+            "description": {
+              "content": "Get the next batch of rows from an open HBase scanner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "scanner",
+                ":scannerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scannerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b744f5b2-b5ed-4361-8ba6-b2d0246434c4",
+              "name": "Batch retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "scanner",
+                    ":scannerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scannerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Row\": [\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    },\n    {\n      \"key\": \"cm93a2V5MQ==\",\n      \"Cell\": [\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        },\n        {\n          \"column\": \"Y2YxOnF1YWw=\",\n          \"timestamp\": 1718153645993,\n          \"$\": \"dmFsdWU=\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f733590c-c530-4577-ac66-60f4f4a861f2",
+              "name": "No more rows (scan complete)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "scanner",
+                    ":scannerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scannerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6cda22c-cc2c-40a2-a58f-a8ea114c4dc3",
+          "name": "Apache HBase Delete Scanner",
+          "request": {
+            "name": "Apache HBase Delete Scanner",
+            "description": {
+              "content": "Close and delete an open HBase scanner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":tableName",
+                "scanner",
+                ":scannerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tableName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scannerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d86f9a32-8b3d-4264-b83c-f126a7eee506",
+              "name": "Scanner closed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":tableName",
+                    "scanner",
+                    ":scannerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tableName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scannerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bf93c42f-d418-4766-8e07-be6c9d2a5202",
+    "name": "Apache HBase REST Regions Scans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API (Stargate) for Apache HBase distributed NoSQL database, providing table management, row and cell operations, and table scanning via HTTP.\n\nContact Support:\n Email: dev@hbase.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

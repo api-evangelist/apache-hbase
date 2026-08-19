@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache HBase REST Regions Scans API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HBase Create Scanner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/:tableName/scanner",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a scanner to iterate over rows in an HBase table with optional filters."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Get Next Scanner Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/:tableName/scanner/:scannerId",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scannerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the next batch of rows from an open HBase scanner."
+        },
+        {
+          "info": {
+            "name": "Apache HBase Delete Scanner",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/:tableName/scanner/:scannerId",
+            "params": [
+              {
+                "name": "tableName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scannerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Close and delete an open HBase scanner."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
