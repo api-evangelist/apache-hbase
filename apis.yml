@@ -137,6 +137,8 @@ apis:
   - type: JSONLD
     url: json-ld/apache-hbase-rest-context.jsonld
 common:
+  - type: Website
+    url: https://www.apache.org/
   - type: Releases
     url: https://github.com/apache/hbase/releases
   - type: SecurityPolicy
