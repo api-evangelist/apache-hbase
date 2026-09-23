@@ -1,10 +1,7 @@
 {
   "provider": "apache-hbase",
   "sources": [
-    "apache-hbase-regions-api-openapi.yml",
-    "apache-hbase-rows-api-openapi.yml",
-    "apache-hbase-scans-api-openapi.yml",
-    "apache-hbase-tables-api-openapi.yml"
+    "_original/apache-hbase-rest-openapi.yml"
   ],
   "outputs": [
     "apache-hbase-regions-api-openapi.yml",
@@ -15,6 +12,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apache-hbase-rest-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "apache-hbase-regions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-hbase-rows-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-hbase-scans-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-hbase-tables-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

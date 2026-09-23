@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Apache HBase REST Regions Tables API
+  title: Apache HBase REST Tables API
   version: 1.0.0
   description: REST API (Stargate) for Apache HBase distributed NoSQL database, providing table management, row and cell operations, and table scanning via HTTP.
   contact:
@@ -108,44 +108,6 @@ paths:
           description: Table not found
 components:
   schemas:
-    TableList:
-      type: object
-      description: List of HBase tables
-      properties:
-        table:
-          type: array
-          description: Array of table names
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Table name
-                example: my-table
-    ClusterVersion:
-      type: object
-      description: HBase cluster version information
-      properties:
-        Server:
-          type: string
-          description: HBase server version
-          example: 2.5.7
-        JVM:
-          type: string
-          description: JVM version
-          example: Oracle Corporation 11.0.20
-        OS:
-          type: string
-          description: Operating system
-          example: Linux 5.15.0
-        REST:
-          type: string
-          description: REST API version
-          example: 0.0.3
-        Jersey:
-          type: string
-          description: Jersey framework version
-          example: '1.19'
     ColumnFamily:
       type: object
       description: HBase column family configuration
@@ -183,3 +145,41 @@ components:
           description: Column family definitions
           items:
             $ref: '#/components/schemas/ColumnFamily'
+    ClusterVersion:
+      type: object
+      description: HBase cluster version information
+      properties:
+        Server:
+          type: string
+          description: HBase server version
+          example: 2.5.7
+        JVM:
+          type: string
+          description: JVM version
+          example: Oracle Corporation 11.0.20
+        OS:
+          type: string
+          description: Operating system
+          example: Linux 5.15.0
+        REST:
+          type: string
+          description: REST API version
+          example: 0.0.3
+        Jersey:
+          type: string
+          description: Jersey framework version
+          example: '1.19'
+    TableList:
+      type: object
+      description: List of HBase tables
+      properties:
+        table:
+          type: array
+          description: Array of table names
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Table name
+                example: my-table
