@@ -145,6 +145,20 @@ components:
           description: Column family definitions
           items:
             $ref: '#/components/schemas/ColumnFamily'
+    TableList:
+      type: object
+      description: List of HBase tables
+      properties:
+        table:
+          type: array
+          description: Array of table names
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Table name
+                example: my-table
     ClusterVersion:
       type: object
       description: HBase cluster version information
@@ -169,17 +183,3 @@ components:
           type: string
           description: Jersey framework version
           example: '1.19'
-    TableList:
-      type: object
-      description: List of HBase tables
-      properties:
-        table:
-          type: array
-          description: Array of table names
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Table name
-                example: my-table

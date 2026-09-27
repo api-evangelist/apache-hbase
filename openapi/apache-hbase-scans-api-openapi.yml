@@ -91,6 +91,36 @@ paths:
           description: Scanner closed
 components:
   schemas:
+    Scanner:
+      type: object
+      description: HBase scanner configuration for table scans
+      properties:
+        startRow:
+          type: string
+          description: Base64-encoded start row key (inclusive)
+          example: cm93MQ==
+        endRow:
+          type: string
+          description: Base64-encoded end row key (exclusive)
+          example: cm93Mg==
+        column:
+          type: array
+          items:
+            type: string
+          description: Base64-encoded column filters
+          example:
+          - Y2YxOnF1YWw=
+        batch:
+          type: integer
+          description: Number of rows per batch
+          example: 100
+        maxVersions:
+          type: integer
+          description: Max cell versions to return
+          example: 1
+        filter:
+          type: string
+          description: URL-encoded filter string
     CellSet:
       type: object
       description: Set of HBase cells grouped by row
@@ -127,33 +157,3 @@ components:
           type: string
           description: Base64-encoded cell value
           example: dmFsdWU=
-    Scanner:
-      type: object
-      description: HBase scanner configuration for table scans
-      properties:
-        startRow:
-          type: string
-          description: Base64-encoded start row key (inclusive)
-          example: cm93MQ==
-        endRow:
-          type: string
-          description: Base64-encoded end row key (exclusive)
-          example: cm93Mg==
-        column:
-          type: array
-          items:
-            type: string
-          description: Base64-encoded column filters
-          example:
-          - Y2YxOnF1YWw=
-        batch:
-          type: integer
-          description: Number of rows per batch
-          example: 100
-        maxVersions:
-          type: integer
-          description: Max cell versions to return
-          example: 1
-        filter:
-          type: string
-          description: URL-encoded filter string
