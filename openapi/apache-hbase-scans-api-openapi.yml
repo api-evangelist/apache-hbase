@@ -121,6 +121,23 @@ components:
         filter:
           type: string
           description: URL-encoded filter string
+    Cell:
+      type: object
+      description: Single HBase cell with column and value
+      properties:
+        column:
+          type: string
+          description: Base64-encoded column (family:qualifier)
+          example: Y2YxOnF1YWw=
+        timestamp:
+          type: integer
+          format: int64
+          description: Cell timestamp in milliseconds
+          example: 1718153645993
+        $:
+          type: string
+          description: Base64-encoded cell value
+          example: dmFsdWU=
     CellSet:
       type: object
       description: Set of HBase cells grouped by row
@@ -140,20 +157,3 @@ components:
                 description: Array of cells in the row
                 items:
                   $ref: '#/components/schemas/Cell'
-    Cell:
-      type: object
-      description: Single HBase cell with column and value
-      properties:
-        column:
-          type: string
-          description: Base64-encoded column (family:qualifier)
-          example: Y2YxOnF1YWw=
-        timestamp:
-          type: integer
-          format: int64
-          description: Cell timestamp in milliseconds
-          example: 1718153645993
-        $:
-          type: string
-          description: Base64-encoded cell value
-          example: dmFsdWU=
