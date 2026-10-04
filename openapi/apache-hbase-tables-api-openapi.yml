@@ -108,43 +108,6 @@ paths:
           description: Table not found
 components:
   schemas:
-    ColumnFamily:
-      type: object
-      description: HBase column family configuration
-      properties:
-        name:
-          type: string
-          description: Column family name
-          example: cf1
-        VERSIONS:
-          type: string
-          description: Max cell versions to retain
-          example: '3'
-        COMPRESSION:
-          type: string
-          description: Compression algorithm
-          example: SNAPPY
-        BLOOMFILTER:
-          type: string
-          description: Bloom filter type
-          example: ROW
-        TTL:
-          type: string
-          description: Time-to-live in seconds
-          example: '2147483647'
-    TableSchema:
-      type: object
-      description: HBase table schema with column family definitions
-      properties:
-        name:
-          type: string
-          description: Table name
-          example: my-table
-        ColumnSchema:
-          type: array
-          description: Column family definitions
-          items:
-            $ref: '#/components/schemas/ColumnFamily'
     TableList:
       type: object
       description: List of HBase tables
@@ -183,3 +146,40 @@ components:
           type: string
           description: Jersey framework version
           example: '1.19'
+    ColumnFamily:
+      type: object
+      description: HBase column family configuration
+      properties:
+        name:
+          type: string
+          description: Column family name
+          example: cf1
+        VERSIONS:
+          type: string
+          description: Max cell versions to retain
+          example: '3'
+        COMPRESSION:
+          type: string
+          description: Compression algorithm
+          example: SNAPPY
+        BLOOMFILTER:
+          type: string
+          description: Bloom filter type
+          example: ROW
+        TTL:
+          type: string
+          description: Time-to-live in seconds
+          example: '2147483647'
+    TableSchema:
+      type: object
+      description: HBase table schema with column family definitions
+      properties:
+        name:
+          type: string
+          description: Table name
+          example: my-table
+        ColumnSchema:
+          type: array
+          description: Column family definitions
+          items:
+            $ref: '#/components/schemas/ColumnFamily'
