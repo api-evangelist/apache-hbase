@@ -108,44 +108,19 @@ paths:
           description: Table not found
 components:
   schemas:
-    TableList:
+    TableSchema:
       type: object
-      description: List of HBase tables
+      description: HBase table schema with column family definitions
       properties:
-        table:
+        name:
+          type: string
+          description: Table name
+          example: my-table
+        ColumnSchema:
           type: array
-          description: Array of table names
+          description: Column family definitions
           items:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Table name
-                example: my-table
-    ClusterVersion:
-      type: object
-      description: HBase cluster version information
-      properties:
-        Server:
-          type: string
-          description: HBase server version
-          example: 2.5.7
-        JVM:
-          type: string
-          description: JVM version
-          example: Oracle Corporation 11.0.20
-        OS:
-          type: string
-          description: Operating system
-          example: Linux 5.15.0
-        REST:
-          type: string
-          description: REST API version
-          example: 0.0.3
-        Jersey:
-          type: string
-          description: Jersey framework version
-          example: '1.19'
+            $ref: '#/components/schemas/ColumnFamily'
     ColumnFamily:
       type: object
       description: HBase column family configuration
@@ -170,16 +145,41 @@ components:
           type: string
           description: Time-to-live in seconds
           example: '2147483647'
-    TableSchema:
+    ClusterVersion:
       type: object
-      description: HBase table schema with column family definitions
+      description: HBase cluster version information
       properties:
-        name:
+        Server:
           type: string
-          description: Table name
-          example: my-table
-        ColumnSchema:
+          description: HBase server version
+          example: 2.5.7
+        JVM:
+          type: string
+          description: JVM version
+          example: Oracle Corporation 11.0.20
+        OS:
+          type: string
+          description: Operating system
+          example: Linux 5.15.0
+        REST:
+          type: string
+          description: REST API version
+          example: 0.0.3
+        Jersey:
+          type: string
+          description: Jersey framework version
+          example: '1.19'
+    TableList:
+      type: object
+      description: List of HBase tables
+      properties:
+        table:
           type: array
-          description: Column family definitions
+          description: Array of table names
           items:
-            $ref: '#/components/schemas/ColumnFamily'
+            type: object
+            properties:
+              name:
+                type: string
+                description: Table name
+                example: my-table
