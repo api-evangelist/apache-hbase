@@ -1,4 +1,4 @@
-# Apache HBase (apache-hbase)
+# Apache HBase
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,88 +66,181 @@
 
 Apache HBase is an open-source, distributed, versioned, non-relational database modeled after Google's Bigtable. It provides random, real-time read/write access to big data and runs on top of Apache Hadoop HDFS, offering a REST API (Stargate), Thrift API, and Java client API for table and cell-level operations.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/apache-hbase/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/apache-hbase/refs/heads/main/apis.yml)
+**Areas:** Apache · Big Data · Bigtable · Database · Hadoop · NoSQL · Open Source · Wide Column
 
-## Scope
+## Apache HBase on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Apache HBase is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apache-hbase/](https://apis.io/providers/apache-hbase/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- Apache
-- Big Data
-- Bigtable
-- Database
-- Hadoop
-- NoSQL
-- Open Source
-- Wide Column
+- [Apache HBase Java Client API](https://apis.io/apis/apache-hbase/apache-hbase-java-api/) — Java client API for all HBase data operations including table administration, filters, coprocessors, batch operations, and async client for high-throughput…
+- [Apache HBase Regions API](https://apis.io/apis/apache-hbase/apache-hbase-regions-api/) — Region information
+- [Apache HBase Rows API](https://apis.io/apis/apache-hbase/apache-hbase-rows-api/) — Row and cell operations
+- [Apache HBase Scans API](https://apis.io/apis/apache-hbase/apache-hbase-scans-api/) — Table scanning operations
+- [Apache HBase Tables API](https://apis.io/apis/apache-hbase/apache-hbase-tables-api/) — Table management operations
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Apache HBase REST API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-REST API (Stargate) for Apache HBase distributed NoSQL database, providing table management, row and cell operations, and table scanning via HTTP with JSON or XML encoding.
+- [Apache Hbase Agentic Access](https://apis.io/agentic-access/apache-hbase/apache-hbase-agentic-access/)
 
-- **Human URL:** [https://hbase.apache.org/book.html#_rest](https://hbase.apache.org/book.html#_rest)
-- **Base URL:** `http://localhost:8080`
+#### JSON Schema (8)
 
-#### Tags
+The data models the API reads and writes.
 
-- Cells
-- NoSQL
-- REST
-- Rows
-- Tables
+- [Cell](https://apis.io/schemas/apache-hbase/hbase-rest-cell/)
+- [CellSet](https://apis.io/schemas/apache-hbase/hbase-rest-cellset/)
+- [ClusterVersion](https://apis.io/schemas/apache-hbase/hbase-rest-clusterversion/)
+- [ColumnFamily](https://apis.io/schemas/apache-hbase/hbase-rest-columnfamily/)
+- [Scanner](https://apis.io/schemas/apache-hbase/hbase-rest-scanner/)
+- [TableList](https://apis.io/schemas/apache-hbase/hbase-rest-tablelist/)
+- [TableRegions](https://apis.io/schemas/apache-hbase/hbase-rest-tableregions/)
+- [TableSchema](https://apis.io/schemas/apache-hbase/hbase-rest-tableschema/)
 
-#### Properties
+#### JSON Structure (8)
 
-- [Documentation](https://hbase.apache.org/book.html#_rest)
-- [OpenAPI](openapi/apache-hbase-rest-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apache-hbase-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apache-hbase-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/hbase-rest-tableschema-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/apache-hbase-rest-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Data models expressed in JSON Structure.
 
-### Apache HBase Java Client API
+- [Hbase Rest Cell Structure](https://apis.io/json-structure/apache-hbase/hbase-rest-cell-structure/)
+- [Hbase Rest Cellset Structure](https://apis.io/json-structure/apache-hbase/hbase-rest-cellset-structure/)
+- [Hbase Rest Clusterversion Structure](https://apis.io/json-structure/apache-hbase/hbase-rest-clusterversion-structure/)
+- [Hbase Rest Columnfamily Structure](https://apis.io/json-structure/apache-hbase/hbase-rest-columnfamily-structure/)
+- [Hbase Rest Scanner Structure](https://apis.io/json-structure/apache-hbase/hbase-rest-scanner-structure/)
+- [Hbase Rest Tablelist Structure](https://apis.io/json-structure/apache-hbase/hbase-rest-tablelist-structure/)
+- [Hbase Rest Tableregions Structure](https://apis.io/json-structure/apache-hbase/hbase-rest-tableregions-structure/)
+- [Hbase Rest Tableschema Structure](https://apis.io/json-structure/apache-hbase/hbase-rest-tableschema-structure/)
 
-Java client API for all HBase data operations including table administration, filters, coprocessors, batch operations, and async client for high-throughput workloads.
+#### JSON-LD (1)
 
-- **Human URL:** [https://hbase.apache.org/apidocs/](https://hbase.apache.org/apidocs/)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Apache Hbase Rest Context](https://apis.io/jsonld/apache-hbase/apache-hbase-rest-context/)
 
-- Java
-- NoSQL
-- SDK
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://hbase.apache.org/apidocs/)
-- [SDK](https://search.maven.org/artifact/org.apache.hbase/hbase-client)
-- [Postman Collection](collections/apache-hbase-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apache-hbase-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Apache HBase Vocabulary](https://apis.io/vocabularies/apache-hbase/apache-hbase-vocabulary/)
 
-## Common Properties
+#### Examples (8)
 
+Example requests and responses.
+
+- [Hbase Rest Cell Example](https://apis.io/examples/apache-hbase/hbase-rest-cell-example/)
+- [Hbase Rest Cellset Example](https://apis.io/examples/apache-hbase/hbase-rest-cellset-example/)
+- [Hbase Rest Clusterversion Example](https://apis.io/examples/apache-hbase/hbase-rest-clusterversion-example/)
+- [Hbase Rest Columnfamily Example](https://apis.io/examples/apache-hbase/hbase-rest-columnfamily-example/)
+- [Hbase Rest Scanner Example](https://apis.io/examples/apache-hbase/hbase-rest-scanner-example/)
+- [Hbase Rest Tablelist Example](https://apis.io/examples/apache-hbase/hbase-rest-tablelist-example/)
+- [Hbase Rest Tableregions Example](https://apis.io/examples/apache-hbase/hbase-rest-tableregions-example/)
+- [Hbase Rest Tableschema Example](https://apis.io/examples/apache-hbase/hbase-rest-tableschema-example/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Apache HBase REST Regions API](https://apis.io/collections/apache-hbase/open-apache-hbase-regions-api/)
+- [Apache HBase REST API](https://apis.io/collections/apache-hbase/open-apache-hbase-rest/)
+- [Apache HBase REST Regions Rows API](https://apis.io/collections/apache-hbase/open-apache-hbase-rows-api/)
+- [Apache HBase REST Regions Scans API](https://apis.io/collections/apache-hbase/open-apache-hbase-scans-api/)
+- [Apache HBase REST Regions Tables API](https://apis.io/collections/apache-hbase/open-apache-hbase-tables-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Apache HBase — jsonschema rules](https://apis.io/rules/apache-hbase/apache-hbase-jsonschema-spectral-rules/)
+- [Apache HBase API Rules](https://apis.io/rules/apache-hbase/apache-hbase-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Apache Hbase Domain Security](https://apis.io/security/apache-hbase/apache-hbase-domain-security/)
+- [Apache Hbase Vulnerability Disclosure](https://apis.io/security/apache-hbase/apache-hbase-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apache Hbase Plans Pricing](https://apis.io/plans/apache-hbase/apache-hbase-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apache Hbase Rate Limits](https://apis.io/rate-limits/apache-hbase/apache-hbase-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apache Hbase Finops](https://apis.io/finops/apache-hbase/apache-hbase-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.apache.org/)
 - [Documentation](https://hbase.apache.org/book.html)
-- [Getting Started](https://hbase.apache.org/book.html#quickstart)
-- [GitHub Organization](https://github.com/apache)
-- [GitHub Repository](https://github.com/apache/hbase)
-- [Spectral Rules](rules/apache-hbase-spectral-rules.yml)
-- [Vocabulary](vocabulary/apache-hbase-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Getting started](https://hbase.apache.org/book.html#quickstart)
+- [GitHub](https://github.com/apache)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
+**Kin Score 39.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 48.9 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 7.9 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apache-hbase/](https://apis.io/providers/apache-hbase/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apache HBase: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apache-hbase/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
